@@ -313,7 +313,6 @@ class ClapDetector {
         if Settings.shared.soundEnabled, let path = Settings.shared.soundPath {
             let url = URL(fileURLWithPath: path)
             soundPlayer = try? AVAudioPlayer(contentsOf: url)
-            soundPlayer?.volume = Settings.shared.soundVolume
 
             // Route to selected output device
             let outputID = Settings.shared.outputDeviceID
@@ -321,9 +320,10 @@ class ClapDetector {
                 soundPlayer?.currentDevice = uid
             }
 
-            // Crank system volume, play, then restore
+            // Set system volume to configured level, play, then restore
             let originalVolume = getSystemVolume()
-            setSystemVolume(100)
+            let targetVolume = Settings.shared.soundVolume * 100
+            setSystemVolume(targetVolume)
             soundPlayer?.play()
 
             let fullDuration = soundPlayer?.duration ?? 1.0
