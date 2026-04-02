@@ -4,6 +4,8 @@ A lightweight macOS menu bar app that detects double claps and launches apps.
 
 Uses adaptive audio analysis with crest factor detection to distinguish claps from speech, music, and desk thumps.
 
+https://github.com/levinlb/double-clap/raw/main/demo.mov
+
 ## Features
 
 - Double clap detection via the microphone
