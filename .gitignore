@@ -1,0 +1,10 @@
+# Build output
+DoubleClap.app/Contents/MacOS/DoubleClap
+*.app.zip
+
+# Python prototypes (not part of the app)
+clap.py
+debug_levels.py
+
+# macOS
+.DS_Store
